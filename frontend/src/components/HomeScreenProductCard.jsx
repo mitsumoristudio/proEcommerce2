@@ -80,8 +80,6 @@ export default function HomeScreenProductCard() {
                     </div>
                 </>
             )}
-
-
         </>
     )
 }

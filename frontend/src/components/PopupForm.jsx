@@ -2,7 +2,6 @@ import React from "react";
 
 export default function PopupForm({headline, form1, form2, placeholder1, placeholder2, setOpenEdit}) {
 
-
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">

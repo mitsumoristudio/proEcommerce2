@@ -1,12 +1,12 @@
 
 import React from 'react';
-import {ShoppingBagIcon, CheckIcon} from "@heroicons/react/20/solid";
+import { CheckIcon} from "@heroicons/react/20/solid";
 import {Popover, PopoverButton, PopoverPanel} from "@headlessui/react";
-import {assets} from "../assets/assets";
 import {useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
 import {Link} from "react-router-dom";
 
+//import {assets} from "../assets/assets";
+//import {useNavigate} from "react-router-dom";
 
 // const mockShopping = [
 //     {
@@ -71,17 +71,19 @@ import {Link} from "react-router-dom";
 
 export default function CartPopOver() {
     const cart = useSelector((state) => state.cartSlice)
-    const user = useSelector((state) => state.user);
-    const navigate = useNavigate();
     const {cartItems} = cart;
 
-    const checkoutHandler = () => {
-        if (user) {
-            navigate("/checkout");
-        } else {
-            navigate("/login");
-        }
-    }
+    // const user = useSelector((state) => state.user);
+    // const navigate = useNavigate();
+
+
+    // const checkoutHandler = () => {
+    //     if (user) {
+    //         navigate("/checkout");
+    //     } else {
+    //         navigate("/login");
+    //     }
+    // }
 
     return (
         <>
@@ -101,7 +103,7 @@ export default function CartPopOver() {
                     <h2 className={"sr-only"}>Shopping Cart</h2>
 
                     <form className={"mx-auto max-w-2xl px-4"}>
-                        <ul role={"list"} className={"divide-y divide-gray-300"}>
+                        <ul  className={"divide-y divide-gray-300"}>
                             {cartItems.map((product) => {
                                 return (
                                     <li key={product._id} className={"flex items-center py-6"}>

@@ -1,63 +1,42 @@
 
 import {StarIcon} from "@heroicons/react/20/solid";
-import React, {useState} from "react";
-import {assets} from "../assets/assets";
+// import React, {useState} from "react";
+// import {assets} from "../assets/assets";
 import {Link, useParams} from "react-router-dom";
-import {useCreateReviewMutation, useGetProductDetailsByIdQuery} from "../features/slices/productApiSlice";
-import {toast} from "react-toastify";
+import { useGetProductDetailsByIdQuery} from "../features/slices/productApiSlice";
 
-const reviews = {
-    average: 4,
-    totalCount: 6,
-    counts: [
-        { rating: 5, count: 1019 },
-        { rating: 4, count: 162 },
-        { rating: 3, count: 97 },
-        { rating: 2, count: 199 },
-        { rating: 1, count: 147 },
-    ],
-    featured: [
-        {
-            id: 1,
-            rating: 5,
-            content: `
-        <p>This is the bag of my dreams. I took it on my last vacation and was able to fit an absurd amount of snacks for the many long and hungry flights.</p>
-      `,
-            author: 'Mia Mitsumori',
-            avatarSrc: assets.miaphoto,
-        },
-    ],
-}
+
+// Mock Review Data
+// const reviews = {
+//     average: 4,
+//     totalCount: 6,
+//     counts: [
+//         { rating: 5, count: 1019 },
+//         { rating: 4, count: 162 },
+//         { rating: 3, count: 97 },
+//         { rating: 2, count: 199 },
+//         { rating: 1, count: 147 },
+//     ],
+//     featured: [
+//         {
+//             id: 1,
+//             rating: 5,
+//             content: `
+//         <p>This is the bag of my dreams. I took it on my last vacation and was able to fit an absurd amount of snacks for the many long and hungry flights.</p>
+//       `,
+//             author: 'Mia Mitsumori',
+//             avatarSrc: assets.miaphoto,
+//         },
+//     ],
+// }
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
 export default function ProductReview({product}) {
-    const [createReviews] = useCreateReviewMutation();
-
-    const [rating, setRating] = useState(0);
-    const [comment, setComment] = useState("");
-
     const {id: productId} = useParams();
     const {data: products} = useGetProductDetailsByIdQuery(productId);
-
-    const onsubmitHandler = async (e) => {
-        e.preventDefault();
-        try {
-            await createReviews({
-                productId: product.product_id,
-                rating: rating,
-                comment: comment,
-            }).unwrap();
-            toast.success("Product Added Successfully.");
-
-            setRating(0);
-            setComment("");
-        } catch (error) {
-            toast.error(error.message);
-        }
-    }
 
     return (
         <div className="bg-white">
