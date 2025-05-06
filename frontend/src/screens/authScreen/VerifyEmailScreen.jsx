@@ -10,7 +10,7 @@ export default function VerifyEmailScreen() {
     const inputRefs = useRef([]);
     const navigate = useNavigate();
 
-    const {verifyEmail, isLoading, error} = useVerifyEmailMutation();
+    const {verifyEmail, } = useVerifyEmailMutation();
 
 
     const handleChange = (index, value) => {
@@ -63,7 +63,7 @@ export default function VerifyEmailScreen() {
         if (code.every((digit) => digit !== "")) {
             onhandleSubmit(new Event("submit"));
         }
-    }, [code]);
+    }, [code], [onhandleSubmit]);
 
     return (
         <div className='max-w-md w-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden'>

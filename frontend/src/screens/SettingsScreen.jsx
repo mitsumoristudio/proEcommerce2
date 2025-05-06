@@ -2,7 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import { PiUserFill } from "react-icons/pi";
 import { FaLock } from "react-icons/fa";
-import {assets} from "../assets/assets";
+// import {assets} from "../assets/assets";
 import { FaTrash } from "react-icons/fa6";
 
 import SettingSection from "../components/SettingSection";
@@ -10,7 +10,7 @@ import ToggleSwitch from "../components/ToggleSwitch";
 import {motion} from "framer-motion";
 import {useProfileMutation, useDeleteUserMutation} from "../features/slices/userApiSlice";
 import {useSelector, useDispatch, } from "react-redux";
-import CustomLoader from "../components/CustomLoader";
+// import CustomLoader from "../components/CustomLoader";
 import {toast} from "react-toastify";
 import {setCredentials} from "../features/slices/authSlice";
 import {useNavigate} from "react-router-dom";

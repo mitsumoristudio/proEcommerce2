@@ -1,7 +1,7 @@
 
 import React from 'react';
 // import mockProducts from "../assets/mockdata/mockProducts";
-import {useParams, useNavigate, NavLink} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {useState} from "react";
 import {addToCart} from "../features/slices/cartSlice";
@@ -11,6 +11,7 @@ import { StarIcon } from '@heroicons/react/20/solid'
 import {ChevronDownIcon} from "@heroicons/react/16/solid";
 import {useGetProductDetailsByIdQuery} from "../features/slices/productApiSlice";
 import CustomLoader from "../components/CustomLoader";
+// import Meta from "../components/Meta";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -74,6 +75,7 @@ export default function ProductScreen() {
 
     const addToCartHandler = () => {
         dispatch(addToCart({...product, qty}));
+        refetch()
         navigate("/cart");
     }
 

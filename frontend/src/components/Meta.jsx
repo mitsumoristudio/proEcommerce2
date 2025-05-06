@@ -11,7 +11,7 @@ export const Meta = ({title, description, keywords}) => {
     )
 }
 Meta.defaultProps = {
-    title: "Welcome to Brentwood Essentials",
+    title: "Welcome to Ecommerce shop",
     description: "We sell sustainable products",
     keywords: "Home Essentials, buy furniture"
 };

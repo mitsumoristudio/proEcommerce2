@@ -16,7 +16,7 @@ export default function ProductEditScreen() {
     const [countInStock, setCountInStock] = useState(0);
     const [description, setDescription] = useState("");
 
-    const { data: product, isLoading, isError } = useGetProductDetailsByIdQuery(productId);
+    const { data: product, isLoading, isError, refetch } = useGetProductDetailsByIdQuery(productId);
     const [updateProduct, ] = useUpdateProductMutation();
     const [ updateProductImage, ] = useUploadProductImageMutation();
 
@@ -80,7 +80,7 @@ export default function ProductEditScreen() {
                       onSubmit={onSubmitHandler}
                 >
                     <div
-                        className={"flex flex-col gap-3 m-auto items-start p-8 min-w-[460px] sm: min-w-280 border rounded-xl\ " +
+                        className={"flex flex-col gap-3 m-auto items-start p-8 min-w-[460px] sm: min-w-280 border rounded-xl " +
                             "text-zinc-700 text-sm shadow-lg "}
                     >
                         <h1 className={"text-2xl font-semibold text-center text-gray-800"}>
