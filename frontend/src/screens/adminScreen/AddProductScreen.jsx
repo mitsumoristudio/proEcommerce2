@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import {toast} from "react-toastify";
 import {Link, useNavigate,} from "react-router-dom";
 import {Field, Label, Textarea} from "@headlessui/react";
-import CustomLoader from "../../components/CustomLoader";
+// import CustomLoader from "../../components/CustomLoader";
 import {useSelector} from "react-redux";
 import {useCreateProductMutation,useUploadProductImageMutation} from "../../features/slices/productApiSlice";
 
@@ -17,8 +17,8 @@ export default function AddProductScreen() {
     const [category, setCategory] = useState("")
     const [description, setDescription] = useState("")
 
-    const [createProduct, isLoading] =useCreateProductMutation();
-    const [uploadProductImage,] = useUploadProductImageMutation();
+    const [createProduct] =useCreateProductMutation();
+    const [uploadProductImage] = useUploadProductImageMutation();
 
     const {userInfo} = useSelector((state) => state.auth);
     const usersID =userInfo.user;
@@ -64,7 +64,7 @@ export default function AddProductScreen() {
 
     return (
         <>
-            {isLoading ? (<CustomLoader />) :
+
                 (
                     <form className={'min-h-[80vh] flex items-center p-2 '}
                           onSubmit={onSubmitHandler}
@@ -174,7 +174,7 @@ export default function AddProductScreen() {
 
 
                     </form>
-                )}
+                )
 
         </>
     )
