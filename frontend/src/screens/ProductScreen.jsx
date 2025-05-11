@@ -11,7 +11,7 @@ import { StarIcon } from '@heroicons/react/20/solid'
 import {ChevronDownIcon} from "@heroicons/react/16/solid";
 import {useGetProductDetailsByIdQuery} from "../features/slices/productApiSlice";
 import CustomLoader from "../components/CustomLoader";
-// import Meta from "../components/Meta";
+import Meta from "../components/Meta";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -86,7 +86,9 @@ export default function ProductScreen() {
     // const product = products.find((product) => product._id === productId);
 
     return (
+
         <section>
+            <Meta title={"Product Page"} />
             <main className="mx-auto max-w-7xl sm:px-6 sm:pt-16 lg:px-8">
                 {isLoading ? (
                     <CustomLoader />

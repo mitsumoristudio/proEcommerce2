@@ -14,6 +14,7 @@ import {useSelector, useDispatch, } from "react-redux";
 import {toast} from "react-toastify";
 import {setCredentials} from "../features/slices/authSlice";
 import {useNavigate} from "react-router-dom";
+import Meta from "../components/Meta";
 
 export default function SettingsScreen() {
     const [name, setName] = useState("");
@@ -91,6 +92,7 @@ export default function SettingsScreen() {
 
     return (
         <>
+            <Meta title={"Personal Settings"}/>
                 <main className={"flex-1 overflow-auto relative z-10 bg-gray-900 px-4"}>
                     <header
                         className={"bg-gray-900 bg-opacity-50 backdrop-blur-md shadow-lg mb-6 border-b border-gray-700"}>

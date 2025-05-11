@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useParams, Link} from "react-router-dom";
-import {useSelector} from "react-redux";
+// import {useSelector} from "react-redux";
 import {toast} from "react-toastify";
 import CustomLoader from "../components/CustomLoader";
 import {Message} from "../components/Message";
@@ -8,6 +8,7 @@ import {useGetOrderDetailsQuery,
         usePayOrderMutation,
         useDeliverOrderMutation,
         useGetPayPalClientIdQuery} from "../features/slices/orderApiSlice";
+import Meta from "../components/Meta";
 import {
     PayPalButtons,
     usePayPalScriptReducer
@@ -26,8 +27,6 @@ export default function CardPaymentScreen() {
     const { data: paypal, isLoading: loadingPaypal, error: errorPaypal} = useGetPayPalClientIdQuery();
 
     const [deliverOrder, {isLoading: loadingDeliver }] = useDeliverOrderMutation();
-
-    const {userInfo} = useSelector((state) => state.auth);
 
     const deliveredOrderHandler = async () => {
         try {
@@ -79,9 +78,9 @@ export default function CardPaymentScreen() {
         refetch();
         toast.success("Payment was successfully approved.");
     }
-    function onError(err) {
-        toast.error(err.message);
-    }
+    // function onError(err) {
+    //     toast.error(err.message);
+    // }
     function createOrder(data, actions) {
         return actions.order.create({
             purchase_units: [
@@ -99,6 +98,7 @@ export default function CardPaymentScreen() {
     return (
         isLoading ? <CustomLoader /> : error ? <Message error={error} />
             : (<>
+                    <Meta title={"Payment Order"} />
                     <section className={"bg-gray-100"}>
                         <div className={"p-1"}>
                             <div className={"mx-auto max-w-2xl px-4 pb-22 pt-16 sm:px-6 lg:max-w-7xl lg: px-8"}>

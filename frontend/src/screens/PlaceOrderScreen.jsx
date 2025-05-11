@@ -8,6 +8,7 @@ import {Message} from "../components/Message";
 
 import {toast} from "react-toastify";
 import {clearCartItems} from "../features/slices/cartSlice";
+import Meta from "../components/Meta";
 
 
 export default function PlaceOrderScreen() {
@@ -39,11 +40,13 @@ export default function PlaceOrderScreen() {
     }
     return (
         <>
+            <Meta title={"Place Order"} />
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (
                 <Message text={"Error"} />
             ) : (
+
                 <section className={"bg-gray-100"}>
                     <div className={"p-1"}>
                         <div className={"mx-auto max-w-2xl px-4 pb-22 pt-16 sm:px-6 lg:max-w-7xl lg: px-8"}>

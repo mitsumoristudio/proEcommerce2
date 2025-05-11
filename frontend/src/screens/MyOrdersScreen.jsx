@@ -7,6 +7,7 @@ import {useState, useEffect} from "react";
 import {useGetMyOrdersQuery} from "../features/slices/orderApiSlice";
 import {useSelector} from "react-redux";
 import {toast} from "react-toastify";
+import Meta from "../components/Meta";
 
 export default function MyOrdersScreen() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -33,6 +34,7 @@ export default function MyOrdersScreen() {
 
     return (
         <>
+            <Meta title={"My Orders"} />
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (

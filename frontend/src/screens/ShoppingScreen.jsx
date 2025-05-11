@@ -10,6 +10,8 @@ import {useGetAllProductsQuery} from "../features/slices/productApiSlice";
 import CustomLoader from "../components/CustomLoader";
 import ProductCard from "../components/ProductCard";
 import Footer from "../components/Footer";
+import Meta from "../components/Meta";
+import React from "react";
 
 export default function ShoppingScreen() {
  //   const { pageNumber, keyword } = useParams();
@@ -19,6 +21,7 @@ export default function ShoppingScreen() {
 
     return (
         <>
+            <Meta title={"Shopping"} />
             <section>
                 <div className={"bg-white"}>
                     <div className={"mx-auto max-w-7xl overflow-hidden sm:px-6 lg:px-8"}>

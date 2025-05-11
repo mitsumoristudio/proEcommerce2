@@ -6,6 +6,7 @@ import {toast} from "react-toastify";
 import {NavLink} from "react-router-dom";
 import {useGetAllUsersQuery, useDeleteUserMutation} from "../../features/slices/userApiSlice";
 import CustomLoader from "../../components/CustomLoader";
+import Meta from "../../components/Meta";
 
 // const mockUserData = [
 //     { id: 1, name: "John Doe", email: "john@example.com", role: "Admin", status: "Active" },
@@ -44,6 +45,7 @@ export default function UserTableScreen() {
 
     return (
         <>
+            <Meta title={"Users Table"} />
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (

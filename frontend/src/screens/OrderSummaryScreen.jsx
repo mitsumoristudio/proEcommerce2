@@ -3,6 +3,7 @@ import React from 'react';
 import {useGetOrderDetailsQuery} from "../features/slices/orderApiSlice";
 import {useParams} from "react-router-dom";
 import CustomLoader from "../components/CustomLoader";
+import Meta from "../components/Meta";
 
 // const mockShopping = [
 //     {
@@ -70,6 +71,7 @@ export default function OrderSummaryScreen() {
 
     return (
         <>
+            <Meta title={"Order Summary"} />
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (

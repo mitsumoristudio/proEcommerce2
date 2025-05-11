@@ -7,6 +7,7 @@ import { FaPlus } from "react-icons/fa";
 import {Link} from "react-router-dom";
 import {useGetAllProductsQuery} from "../../features/slices/productApiSlice";
 import CustomLoader from "../../components/CustomLoader";
+import Meta from "../../components/Meta"
 
 
 export default function ProductTableScreen() {
@@ -27,6 +28,7 @@ export default function ProductTableScreen() {
 
     return (
         <>
+            <Meta title={"Product Table"} />
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (

@@ -6,6 +6,7 @@ import { ChevronDownIcon, CheckCircleIcon } from '@heroicons/react/16/solid'
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {saveShippingAddress} from "../features/slices/cartSlice";
+import Meta from "../components/Meta";
 
 const mockdeliveryOptions = [
     { id: 1, shipping:"Standard", turnaround: "3-10 business days", price:"Free of charge for over $100.00"},
@@ -109,6 +110,7 @@ export default function CheckoutScreen() {
 
     return (
         <>
+            <Meta title={"Shipping Page"} />
         <section className={"bg-gray-100"}>
         <div className={"p-1"}>
             <div className={"mx-auto max-w-2xl px-4 pb-22 pt-16 sm:px-6 lg:max-w-7xl lg:px-8"}>

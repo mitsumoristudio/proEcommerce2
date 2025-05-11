@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addToCart, removeFromCart} from "../features/slices/cartSlice";
 import {FaTrash} from "react-icons/fa";
 import {toast} from "react-toastify";
+import Meta from "../components/Meta";
 
 // import {assets} from "../assets/assets";
 
@@ -98,6 +99,7 @@ export default function CartSummaryScreen() {
 
     return (
         <>
+            <Meta title={"Cart Page"} />
             {/* Shopping Cart Summary  */}
             <div className="bg-white">
                 <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">

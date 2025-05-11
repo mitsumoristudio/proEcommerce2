@@ -4,7 +4,7 @@ import {motion} from "framer-motion";
 import { CiSearch } from "react-icons/ci";
 // import {assets} from "../../assets/assets";
 import {Link} from "react-router-dom";
-
+import Meta from "../../components/Meta"
 import CustomLoader from "../../components/CustomLoader";
 import {useGetAllOrdersQuery} from "../../features/slices/orderApiSlice";
 import {FaTimes} from "react-icons/fa";
@@ -55,6 +55,7 @@ export default function OrderTableScreen() {
     }
     return (
         <>
+            <Meta title={"Order Table"} />
             {isLoading ? (
                 <CustomLoader />
             ) : isError ? (
