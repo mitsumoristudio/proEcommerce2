@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.412e7780.css",
+    "main.js": "/static/js/main.c04f401f.js",
+    "static/media/modern_bedroom.jpg": "/static/media/modern_bedroom.753cf813fa2794c78e73.jpg",
+    "static/media/luggage_with_hat.jpg": "/static/media/luggage_with_hat.4f19327df946365076dc.jpg",
+    "static/media/grey_sofa_isolated.png": "/static/media/grey_sofa_isolated.4e2e6d33c683622dee8e.png",
+    "static/media/chair1.jpg": "/static/media/chair1.5d23a4c5dd74111dc9be.jpg",
+    "static/media/grey_comfortable_armchair.jpg": "/static/media/grey_comfortable_armchair.ce24a825cdb71d0f4833.jpg",
+    "static/media/cabinet1.jpg": "/static/media/cabinet1.408ca2a95dec7b7e788c.jpg",
+    "static/media/single_double_beds.jpg": "/static/media/single_double_beds.2540f87d329db8e97928.jpg",
+    "static/media/booth_table.jpg": "/static/media/booth_table.b2484e5e3f06d91f475b.jpg",
+    "static/media/miaphoto.jpeg": "/static/media/miaphoto.3ecdec6bed7ba3c8eaaf.jpeg",
+    "static/media/waikiki.jpeg": "/static/media/waikiki.d9021b4e7e17cf6373b8.jpeg",
+    "static/media/fuji.jpeg": "/static/media/fuji.022c3c354130c3e764ae.jpeg",
+    "static/media/brand_4.svg": "/static/media/brand_4.442c986cbea099eb22e135bf63fd5fc0.svg",
+    "static/media/brand_3.svg": "/static/media/brand_3.ce845aa037c25975369724b65608fab9.svg",
+    "static/media/western_union.svg": "/static/media/western_union.93288cc976516156f895d886deb7b5b8.svg",
+    "static/media/brand_2.svg": "/static/media/brand_2.8bcd6b81a9ef2ce8656d9dd719fe842c.svg",
+    "static/media/brand_1.svg": "/static/media/brand_1.26d99caf4f8e3ac17df80cbbd48cb5fa.svg",
+    "static/media/brand_6.svg": "/static/media/brand_6.f2666bb2bc3de314391e7295b87afc2f.svg",
+    "static/media/brand_5.svg": "/static/media/brand_5.b6631a7ee93377119c5a4f1c3a5427dc.svg",
+    "static/media/mastercard.svg": "/static/media/mastercard.2687277ba974edff5f170517a6ee461c.svg",
+    "static/media/paypal.svg": "/static/media/paypal.d40377b15aa0607b131d3fd57c68a556.svg",
+    "static/media/visa.svg": "/static/media/visa.802688f57055f88918161ec503302607.svg",
+    "index.html": "/index.html",
+    "main.412e7780.css.map": "/static/css/main.412e7780.css.map",
+    "main.c04f401f.js.map": "/static/js/main.c04f401f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.412e7780.css",
+    "static/js/main.c04f401f.js"
+  ]
+}
