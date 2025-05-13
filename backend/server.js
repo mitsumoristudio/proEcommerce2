@@ -14,7 +14,6 @@ import helmet from "helmet";
 //import {sanitize} from "express-mongo-sanitize";
 //import {sanitizeFilter} from "mongoose";
 
-
 dotenv.config();
 
 const app = express();
@@ -86,7 +85,6 @@ if (process.env.NODE_ENV  !== "development") {
         res.send("API is currently running ...")
     })
 }
-
 
 // Error Handler
 app.use(notFound);

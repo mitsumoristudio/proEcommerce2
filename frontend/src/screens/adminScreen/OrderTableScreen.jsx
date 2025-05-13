@@ -1,14 +1,14 @@
 
 import {useState} from "react";
 import {motion} from "framer-motion";
-import { CiSearch } from "react-icons/ci";
-// import {assets} from "../../assets/assets";
+// import { CiSearch } from "react-icons/ci";
 import {Link} from "react-router-dom";
 import Meta from "../../components/Meta"
 import CustomLoader from "../../components/CustomLoader";
-import {useGetAllOrdersQuery} from "../../features/slices/orderApiSlice";
+import {useGetAllOrdersQuery, useDeleteOrderMutation} from "../../features/slices/orderApiSlice";
 import {FaTimes} from "react-icons/fa";
-
+import {toast} from "react-toastify";
+// import {assets} from "../../assets/assets";
 
 // const mockOrders = [
 //     {
@@ -41,18 +41,32 @@ import {FaTimes} from "react-icons/fa";
 //     ]
 
 export default function OrderTableScreen() {
-    const [searchTerm, setSearchTerm] = useState("");
-    const {data: orders, isLoading, isError} = useGetAllOrdersQuery();
+   // const [searchTerm, setSearchTerm] = useState("");
+    const {data: orders, isLoading, isError, refetch} = useGetAllOrdersQuery();
     const [filterOrders, setFilterOrders] = useState(orders);
+    const [deleteOrder] = useDeleteOrderMutation();
 
-    const handleSearch = (e) => {
-        const term = e.target.value.toLowerCase();
-        setSearchTerm(term);
+    // const handleSearch = (e) => {
+    //     const term = e.target.value.toLowerCase();
+    //     setSearchTerm(term);
+    //
+    //     const filtered = orders.filter((order) => order.includes(term));
+    //
+    //     setFilterOrders(filtered);
+    // }
 
-        const filtered = orders.filter((order) => order.toLowerCase().includes(term));
-
-        setFilterOrders(filtered);
+    const deleteOrderHandler = (id) => {
+        if (window.confirm("Are you sure you want to delete this order?")) {
+         try {
+             deleteOrder(id);
+             refetch();
+             toast.success("Order was deleted successfully.");
+         }  catch (error) {
+             toast.error(error?.data?.message || error.message);
+         }
+        }
     }
+
     return (
         <>
             <Meta title={"Order Table"} />
@@ -69,16 +83,16 @@ export default function OrderTableScreen() {
                 >
                     <div className='flex justify-between items-center mb-6'>
                         <h2 className='text-xl font-semibold text-gray-100'>Orders</h2>
-                        <div className='relative'>
-                            <input
-                                type='text'
-                                placeholder='Search Orders by user..'
-                                className='bg-gray-700 text-white placeholder-gray-400 rounded-lg pl-16 pr-6 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
-                                value={searchTerm}
-                                onChange={handleSearch}
-                            />
-                            <CiSearch className='absolute left-3 top-2.5 text-gray-400' size={18}/>
-                        </div>
+                        {/*<div className='relative'>*/}
+                        {/*    <input*/}
+                        {/*        type='text'*/}
+                        {/*        placeholder='Search Orders by user..'*/}
+                        {/*        className='bg-gray-700 text-white placeholder-gray-400 rounded-lg pl-16 pr-6 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500'*/}
+                        {/*        value={searchTerm}*/}
+                        {/*        onChange={handleSearch}*/}
+                        {/*    />*/}
+                        {/*    <CiSearch className='absolute left-3 top-2.5 text-gray-400' size={18}/>*/}
+                        {/*</div>*/}
 
                     </div>
 
@@ -180,9 +194,13 @@ export default function OrderTableScreen() {
 
                                     <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
                                         <Link to={`/orders/${order._id}/summary`}>
-                                            <button className='text-indigo-400 hover:text-indigo-300 mr-2'>Details</button>
+                                            <button className='text-indigo-400 hover:text-indigo-300 mr-2'>Details
+                                            </button>
                                         </Link>
 
+                                        <button className='text-red-400 hover:text-red-300'
+                                                onClick={() => deleteOrderHandler(order._id)}>Delete
+                                        </button>
 
                                     </td>
                                 </motion.tr>

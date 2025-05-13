@@ -169,4 +169,16 @@ export const getOrders = asyncHandler(async (req, res) => {
 //    res.send("Get All Orders");
 })
 
+// @desc    Delete a Order
+// @route   DELETE /api/orders/:id
+// @access  Private/Admin
+export const deleteOrder = asyncHandler(async (req, res) => {
+    const order = OrdersModels.findById(req.params.id);
+    if (order) {
+        await OrdersModels.deleteOne(order);
+        res.json({message: 'Order deleted successfully'});
+    } else {
+        res.status(404).json({message: 'No Order was found'});
+    }
+})
 
