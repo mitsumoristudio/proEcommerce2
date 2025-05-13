@@ -4,7 +4,7 @@ import {useState} from "react";
 import {motion} from "framer-motion";
 import { CiSearch } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useGetAllProductsQuery , useDeleteProductMutation} from "../../features/slices/productApiSlice";
 import CustomLoader from "../../components/CustomLoader";
 import {toast} from "react-toastify";
@@ -14,8 +14,9 @@ import Meta from "../../components/Meta"
 export default function ProductTableScreen() {
     //  const [filterProducts, setFilterProducts] = useState(mockProducts);
 
+    const {keyword} = useParams();
     const [searchTerm, setSearchTerm] = useState("");
-    const {data: products, isLoading, isError, refetch} = useGetAllProductsQuery();
+    const {data: products, isLoading, isError, refetch} = useGetAllProductsQuery({keyword});
     const [deleteProduct] = useDeleteProductMutation();
     const [filteredProducts, setFilteredProducts] = useState(products);
 

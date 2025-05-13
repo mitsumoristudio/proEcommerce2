@@ -32,6 +32,8 @@ export default function RegisterScreen() {
         if (password !== confirmPassword) {
             toast.error("Passwords don't match");
             return;
+        } else if (password.length <= 5) {
+            toast.error("Password must be at least 6 characters long");
         } else {
             try {
                 const res = await register({

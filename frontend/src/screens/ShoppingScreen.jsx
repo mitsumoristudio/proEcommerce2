@@ -3,7 +3,7 @@
 // import mockProducts from "../assets/mockdata/mockProducts";
 // import React, {useState, useEffect} from 'react';
 // import {useGetProductsPaginationQuery} from "../features/slices/productApiSlice";
- //import Pagination from "../components/Pagination";
+// import Pagination from "../components/Pagination";
 //import {useParams} from "react-router-dom";
 
 import {useGetAllProductsQuery} from "../features/slices/productApiSlice";
