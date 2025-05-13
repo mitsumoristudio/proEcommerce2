@@ -21,6 +21,9 @@ import brand_6 from "../assets/swiperbrands/brand_6.svg"
 import miaphoto from "../assets/miaphoto.jpeg"
 import fuji from "../assets/fuji.jpeg"
 import waikiki from "../assets/waikiki.jpeg"
+import badge_icon from "../assets/shippingIcons/badge_icon.png"
+import shirt_icon from "../assets/shippingIcons/shirt_icon.png"
+import truck_icon from "../assets/shippingIcons/truck_icon.png"
 
 
 export const assets = {
@@ -40,6 +43,10 @@ export const assets = {
     miaphoto,
     fuji,
     waikiki,
+    badge_icon,
+    shirt_icon,
+    truck_icon,
+
 
 }
 

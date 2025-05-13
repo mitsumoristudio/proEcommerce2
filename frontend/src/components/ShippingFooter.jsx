@@ -1,20 +1,21 @@
 
 import React from 'react';
+import {assets} from "../assets/assets";
 
 const benefits = [
     {
         name: 'Free shipping for purchases over $100',
-        imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-shipping-simple.svg',
+        imageSrc: assets.truck_icon,
         description: "It's not actually free we just price it into the products. Someone's paying for it, and it's not us.",
     },
     {
         name: '1-year warranty',
-        imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-warranty-simple.svg',
+        imageSrc: assets.badge_icon,
         description: "If it breaks in the first 1 years we'll replace it. After that you're on your own though.",
     },
     {
         name: 'Exchanges',
-        imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-exchange-simple.svg',
+        imageSrc: assets.shirt_icon,
         description:
             "If you don't like it, trade it to one of your friends for something of theirs. Don't send it here though.",
     },
