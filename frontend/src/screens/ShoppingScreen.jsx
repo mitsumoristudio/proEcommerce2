@@ -12,12 +12,15 @@ import ProductCard from "../components/ProductCard";
 import Footer from "../components/Footer";
 import Meta from "../components/Meta";
 import React from "react";
+import {useParams} from "react-router-dom";
 
 export default function ShoppingScreen() {
  //   const { pageNumber, keyword } = useParams();
  //   const {data, isError, isLoading} = useGetProductsPaginationQuery({keyword, pageNumber});
     // Fetch product without Pagination
-    const {data: products, isLoading, isError} = useGetAllProductsQuery();
+    const {keyword} = useParams();
+
+    const {data: products, isLoading, isError} = useGetAllProductsQuery({keyword});
 
     return (
         <>

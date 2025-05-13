@@ -6,7 +6,9 @@ import {asyncHandler} from "../middleware/asyncHandler.js";
 // @route GET /api/products
 // @access Public
 export const getAllProducts = asyncHandler(async (req, res) => {
-    const products = await ProductModels.find({});
+    const keyword = req.query.keyword ? { name : {$regex: req.query.keyword, $options: "i" } } : { };
+
+    const products = await ProductModels.find({...keyword});
     res.json(products);
 });
 

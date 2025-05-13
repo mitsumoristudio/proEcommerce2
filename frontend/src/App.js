@@ -18,14 +18,12 @@ import OrderTableScreen from "./screens/adminScreen/OrderTableScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import ProductEditScreen from "./screens/adminScreen/ProductEditScreen";
 import CardPaymentScreen from "./screens/CardPaymentScreen";
-import DummyPaypalCheckout from "./components/DummyPaypalCheckout";
 import VerifyEmailScreen from "./screens/authScreen/VerifyEmailScreen";
 import ForgotPasswordPage from "./screens/authScreen/ForgotPasswordPage";
 import ResetPasswordPage from "./screens/authScreen/ResetPasswordPage";
 import MyOrdersScreen from "./screens/MyOrdersScreen";
 import SettingsScreen from "./screens/SettingsScreen";
 import AboutUsScreen from "./screens/AboutUsScreen";
-
 
 import PrivateRoute from "./components/PrivateRoute";
 import {AdminRoute} from "./components/AdminRoute";
@@ -42,9 +40,11 @@ export default function App() {
 
           <Routes>
               <Route path={"/"} index={true} element={<HomeScreen />} />
+              <Route path={"/search/:keyword"} element={<HomeScreen />} />
+              <Route path={"/search/keyword/page/:pageNumber"} element={<HomeScreen />} />
+
               <Route path={"/register"} element={<RegisterScreen />} />
               <Route path={"/login"} element={<LoginScreen />} />
-              <Route path={"/dummyCheckout"} element={<DummyPaypalCheckout />} />
               <Route path={"/verifyEmail"} element={<VerifyEmailScreen />} />
               <Route path={"/forgotPassword"} element={<ForgotPasswordPage />} />
               <Route path={"/resetPassword/:token"} element={<ResetPasswordPage />} />

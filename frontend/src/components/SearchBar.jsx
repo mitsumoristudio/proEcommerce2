@@ -1,27 +1,32 @@
 
 import {useState} from "react";
 import {FaSearch} from "react-icons/fa";
-import {useGetAllProductsQuery} from "../features/slices/productApiSlice";
+import {useParams, useNavigate} from "react-router-dom";
 
 export default function SearchBar() {
-    const [searchTerm, setSearchTerm] = useState("");
-    const {data: products} = useGetAllProductsQuery();
-    const [filteredProducts, setFilteredProducts] = useState(products);
+    const navigate = useNavigate();
+    const {keyword: urlKeyword} = useParams();
+    const [keyword, setKeyword] = useState(urlKeyword || "");
 
     const handleSearchHandler = (e) => {
-        const term = e.target.value.toLowerCase();
-        setSearchTerm(term);
-
-        const filtered = filteredProducts.filter((product) => product.name.toLowerCase().includes(term));
-        setFilteredProducts(filtered);
+        e.preventDefault();
+        if (keyword.trim()) {
+            setKeyword("");
+            navigate(`/search/${keyword}`);
+        } else {
+            navigate("/");
+        }
     }
+
     return (
         <div className={"flex justify-center items-center p-4"}>
+            <form className={"mx-auto"}
+                onSubmit={handleSearchHandler}>
             <div className={"relative w-full max-w-md"}>
                 <input
                 type="text"
-                value={searchTerm}
-                onChange={handleSearchHandler}
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
                 placeholder={"Search..."}
                 className={"w-full px-4 py-2 pr-20 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500"}/>
                 <button
@@ -29,6 +34,7 @@ export default function SearchBar() {
                     <FaSearch />
                 </button>
             </div>
+        </form>
         </div>
     )
 }

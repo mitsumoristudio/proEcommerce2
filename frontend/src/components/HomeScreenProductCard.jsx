@@ -1,6 +1,7 @@
 import React from "react";
 import {useGetAllProductsQuery} from "../features/slices/productApiSlice";
 import CustomLoader from "./CustomLoader";
+import {useParams} from "react-router-dom";
 
 // import {assets} from "../assets/assets";
 
@@ -44,7 +45,9 @@ export default function HomeScreenProductCard() {
     //         imageAlt: 'Grey leather armchair',
     //     },
     // ]
-    const {data: products, isLoading, isError } = useGetAllProductsQuery();
+    const {keyword} = useParams()
+
+    const {data: products, isLoading, isError } = useGetAllProductsQuery({keyword});
 
     return (
         <>
