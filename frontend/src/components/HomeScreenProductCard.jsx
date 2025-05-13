@@ -59,7 +59,7 @@ export default function HomeScreenProductCard() {
                     key={products._id}>
                         {products?.map((product) => (
                             <div key={product._id}
-                                 className="group relative cursor-pointer hover:translate-y-[-12px] transition-all duration-500">
+                                 className="group relative cursor-pointer my-2 hover:translate-y-[-10px] transition-all duration-500">
                                 <div
                                     className="h-56 w-full overflow-hidden rounded-md cursor-pointer bg-gray-200 group-hover:opacity-75 lg:h-72 xl:h-80"
                                     key={product.id}>
