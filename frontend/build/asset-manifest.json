@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.412e7780.css",
-    "main.js": "/static/js/main.c04f401f.js",
+    "main.css": "/static/css/main.46ee1b46.css",
+    "main.js": "/static/js/main.0a6fab30.js",
     "static/media/modern_bedroom.jpg": "/static/media/modern_bedroom.753cf813fa2794c78e73.jpg",
     "static/media/luggage_with_hat.jpg": "/static/media/luggage_with_hat.4f19327df946365076dc.jpg",
     "static/media/grey_sofa_isolated.png": "/static/media/grey_sofa_isolated.4e2e6d33c683622dee8e.png",
@@ -24,11 +24,11 @@
     "static/media/paypal.svg": "/static/media/paypal.d40377b15aa0607b131d3fd57c68a556.svg",
     "static/media/visa.svg": "/static/media/visa.802688f57055f88918161ec503302607.svg",
     "index.html": "/index.html",
-    "main.412e7780.css.map": "/static/css/main.412e7780.css.map",
-    "main.c04f401f.js.map": "/static/js/main.c04f401f.js.map"
+    "main.46ee1b46.css.map": "/static/css/main.46ee1b46.css.map",
+    "main.0a6fab30.js.map": "/static/js/main.0a6fab30.js.map"
   },
   "entrypoints": [
-    "static/css/main.412e7780.css",
-    "static/js/main.c04f401f.js"
+    "static/css/main.46ee1b46.css",
+    "static/js/main.0a6fab30.js"
   ]
 }
