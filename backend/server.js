@@ -72,7 +72,7 @@ app.get("/api/config/paypal", (req, res) =>
 
 // Set upload folder as static
 const __dirname = path.resolve(); // Set _dirname to current directory
-app.use(`/uploads`, express.static(path.join(__dirname, `/uploads`))); // changed the pathname because the root folder would not accept /uploads previous running from backend package json ../uploads
+app.use(`/uploads`, express.static(path.join(__dirname, `../uploads`))); // changed the pathname because the root folder would not accept /uploads previous running from backend package json ../uploads
 
 // Prepare for Production
 if (process.env.NODE_ENV  !== "development") {
