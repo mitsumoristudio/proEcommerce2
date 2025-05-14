@@ -3,7 +3,7 @@ import {useState} from "react";
 import {motion} from "framer-motion";
 import { CiSearch } from "react-icons/ci";
 import {toast} from "react-toastify";
-import {NavLink} from "react-router-dom";
+// import {NavLink} from "react-router-dom";
 import {useGetAllUsersQuery, useDeleteUserMutation} from "../../features/slices/userApiSlice";
 import CustomLoader from "../../components/CustomLoader";
 import Meta from "../../components/Meta";
@@ -141,9 +141,9 @@ export default function UserTableScreen() {
                                     </td>
 
                                     <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300'>
-                                        <NavLink to={`/admin/user/${user._id}/edit`}>
-                                            <button className='text-indigo-400 hover:text-indigo-300 mr-2'>Edit</button>
-                                        </NavLink>
+                                        {/*<NavLink to={`/admin/user/${user._id}/edit`}>*/}
+                                        {/*    <button className='text-indigo-400 hover:text-indigo-300 mr-2'>Edit</button>*/}
+                                        {/*</NavLink>*/}
 
 
                                         <button className='text-red-400 hover:text-red-300'

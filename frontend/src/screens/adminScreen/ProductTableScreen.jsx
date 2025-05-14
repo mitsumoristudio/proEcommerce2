@@ -5,18 +5,19 @@ import {motion} from "framer-motion";
 import { CiSearch } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa";
 import {Link, useParams} from "react-router-dom";
-import {useGetAllProductsQuery , useDeleteProductMutation} from "../../features/slices/productApiSlice";
+import {useGetProductsPaginationQuery , useDeleteProductMutation} from "../../features/slices/productApiSlice";
 import CustomLoader from "../../components/CustomLoader";
 import {toast} from "react-toastify";
 import Meta from "../../components/Meta"
+import Pagination from "@mui/material/Pagination"
 
 
 export default function ProductTableScreen() {
     //  const [filterProducts, setFilterProducts] = useState(mockProducts);
 
-    const {keyword} = useParams();
+    const {keyword, pageNumber} = useParams();
     const [searchTerm, setSearchTerm] = useState("");
-    const {data: products, isLoading, isError, refetch} = useGetAllProductsQuery({keyword});
+    const {data: products, isLoading, isError, refetch} = useGetProductsPaginationQuery({keyword, pageNumber});
     const [deleteProduct] = useDeleteProductMutation();
     const [filteredProducts, setFilteredProducts] = useState(products);
 
@@ -162,7 +163,10 @@ export default function ProductTableScreen() {
                                 </motion.tr>
                             ))}
                             </tbody>
+
                         </table>
+                        <Pagination count={products.pages} page={products.page} variant={"outlined"} color={"secondary"} shape={"rounded"}/>
+
                     </div>
                 </motion.div>
             )}
