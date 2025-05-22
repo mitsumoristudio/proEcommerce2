@@ -45,9 +45,6 @@ app.use(express.urlencoded({ extended: true }));
 // Cookie Parser Middleware
 app.use(cookieParser());
 
-// Sanitize Recieved Data
-// app.use(sanitizeFilter)
-
 // Prior to adding to deployment
 // app.get("/", (req, res) => {
 //     res.send("API is running...")

@@ -9,7 +9,10 @@ import {useGetProductsPaginationQuery , useDeleteProductMutation} from "../../fe
 import CustomLoader from "../../components/CustomLoader";
 import {toast} from "react-toastify";
 import Meta from "../../components/Meta"
-import Pagination from "@mui/material/Pagination"
+import "../../App.css"
+import {useNavigate} from "react-router-dom";
+ import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+ import Pagination from "@mui/material/Pagination"
 
 
 export default function ProductTableScreen() {
@@ -20,6 +23,14 @@ export default function ProductTableScreen() {
     const {data: products, isLoading, isError, refetch} = useGetProductsPaginationQuery({keyword, pageNumber});
     const [deleteProduct] = useDeleteProductMutation();
     const [filteredProducts, setFilteredProducts] = useState(products);
+    const [page, setPage] = useState(1);
+    const navigate = useNavigate();
+
+    const selectedPageHandler = (selectedPage) => {
+        if (selectedPage >= 1 && selectedPage <= products.length / 8 && selectedPage !== page) {
+            setPage(selectedPage);
+        }
+    }
 
     const handleSearch = (e) => {
         const term = e.target.value.toLowerCase();
@@ -37,6 +48,7 @@ export default function ProductTableScreen() {
                 await deleteProduct(id);
                 refetch();
                 toast.success("Product deleted successfully.");
+                navigate("/")
             } catch (error) {
                 toast.error(error?.data?.message || error.message);
             }
@@ -163,9 +175,28 @@ export default function ProductTableScreen() {
                                 </motion.tr>
                             ))}
                             </tbody>
+                            <span onClick={() => selectedPageHandler(page - 1)}
+                                  className={page > 1 ? "" : "pagination__disable"}>
+                                <FaArrowAltCircleLeft size={24} />
+                            </span>
+                            { [...Array(products.pages).keys()].map((_, index) => {
+                                return (
+                                    <span key={index}
+                                          className={page === index + 1 ? "pagination__selected" : ""}
+                                    onClick={() => selectedPageHandler(index + 1)}>
+                                        {index + 1}
+                                    </span>
+                                )
+                            })}
+
+                            <span className={page < products.length / 8 ? "" : "pagination__disable"}
+                            onClick={() => selectedPageHandler(page- 1)}>
+                                <FaArrowAltCircleRight size={24} />
+                            </span>
+
 
                         </table>
-                        <Pagination count={products.pages} page={products.page} variant={"outlined"} color={"secondary"} shape={"rounded"}/>
+                        {/*<Pagination count={products.pages} page={products.page} variant={"outlined"} color={"secondary"} shape={"rounded"}/>*/}
 
                     </div>
                 </motion.div>
