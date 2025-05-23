@@ -42,25 +42,42 @@ export default function LoginScreen() {
             onSubmit={onSubmitHandler}>
                 <div
                     className={'flex flex-col gap-3 m-auto items-start p-8 min-w-[360px] sm: min-w-120 border rounded-xl text-zinc-700 text-sm shadow-lg '}>
-                    <p className={'text-3xl font-semibold mb-2'}> Login</p>
+                    <p className={'text-3xl font-semibold mb-2'}
+                        data-cy={"login-title"}
+                    >Login</p>
 
-                    <div className={'w-full '}>
-                        <p className={"mb-2 text-lg font-semibold"}>Email</p>
+                    <div className={'w-full'}>
+                        <p className={"mb-2 text-lg font-semibold"}
+                            data-cy={"email-headline"}
+                        >Email</p>
                         <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
-                               placeholder={"Enter your email"} type={'email'} value={email} required={true}
+                               placeholder={"Enter your email"}
+                               type={'email'}
+                               value={email}
+                               required={true}
+                               data-cy={"error-email"}
+                               data-cx={"input-email"}
                                onChange={(e) => setEmail(e.target.value)}/>
                     </div>
 
                     <div className={'w-full'}>
-                        <p className={"mb-2 text-lg font-semibold"}>Password</p>
+                        <p className={"mb-2 text-lg font-semibold"}
+                            data-cy={"password-headline"}
+                        >Password</p>
                         <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
-                               placeholder={"Enter your password"} type={'password'} value={password} required={true}
+                               placeholder={"Enter your password"}
+                               type={'password'}
+                               value={password}
+                               required={true}
+                               data-cy={"error-password"}
+                               data-cx={"input-password"}
                                onChange={(e) => setPassword(e.target.value)}/>
                     </div>
 
                     <button
                         type="submit"
                         disabled={isLoading}
+                        data-cy={"submit"}
                         className="flex max-w-xs  mt-2 flex-1 items-center justify-center rounded-lg border border-transparent bg-indigo-600 px-8 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                     >
                         Sign In
@@ -70,7 +87,10 @@ export default function LoginScreen() {
                         <p className={"text-gray-800 w-full items-center ml-12"}>Create a new account
                             <span>  </span>
                             <span className={"text-indigo-700 font-semibold underline cursor-pointer"}>
-                            <Link to={"/register"}> Click here </Link>
+
+                            <Link to={"/register"}
+                                  data-cy={"submit2"}
+                                 > Click here </Link>
 
                         </span></p>
                     </div>

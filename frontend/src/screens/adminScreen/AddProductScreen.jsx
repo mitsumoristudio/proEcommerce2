@@ -65,7 +65,7 @@ export default function AddProductScreen() {
     return (
         <>
 
-                (
+
                     <form className={'min-h-[80vh] flex items-center p-2 '}
                           onSubmit={onSubmitHandler}
                     >
@@ -73,47 +73,73 @@ export default function AddProductScreen() {
                             className={"flex flex-col gap-2 m-auto items-start rounded-lg p-5 min-w-[460px] sm: min-w-280 border rounded-xl" +
                                 "text-zinc-700 text-sm shadow-lg "}
                         >
-                            <h1 className={"text-2xl font-semibold text-center text-gray-800"}>
-                                Add new product
+                            <h1 className={"text-2xl font-semibold text-center text-gray-800"}
+                                data-cy={"addProduct-title"}
+                            >Add new product
                             </h1>
 
                             <div className={'w-full '}>
-                                <p className={"mb-1 text-lg font-semibold"}>Product Name</p>
+                                <p className={"mb-1 text-lg font-semibold"}
+                                    data-cy={"product-headline"}
+                                >Product Name</p>
                                 <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
-                                       placeholder={"Enter product name"} type={name} value={name}
+                                       placeholder={"Enter product name"}
+                                       type={name}
+                                       value={name}
                                        required={true}
+                                       data-cx={"input-product"}
                                        onChange={(e) => setName(e.target.value)}/>
                             </div>
 
                             <div className={'w-full '}>
-                                <p className={"mb-1 text-lg font-semibold"}>Price $</p>
+                                <p className={"mb-1 text-lg font-semibold"}
+                                    data-cy={"price-headline"}
+                                >Price $</p>
                                 <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
-                                       placeholder={"Enter price"} type={"price"} value={price}
+                                       placeholder={"Enter price"}
+                                       type={"price"}
+                                       value={price}
                                        required={true}
+                                       data-cx={"input-price"}
                                        onChange={(e) => setPrice(e.target.value)}/>
                             </div>
 
                             <div className={'w-full '}>
-                                <p className={"mb-1 text-lg font-semibold"}>Brand Name</p>
+                                <p className={"mb-1 text-lg font-semibold"}
+                                    data-cy={"brand-headline"}
+                                >Brand Name</p>
                                 <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
-                                       placeholder={"Enter brand name"} type={brand} value={brand}
+                                       placeholder={"Enter brand name"}
+                                       type={brand}
+                                       value={brand}
                                        required={true}
+                                       data-cx={"input-brand_name"}
                                        onChange={(e) => setBrand(e.target.value)}/>
                             </div>
 
                             <div className={'w-full '}>
-                                <p className={"mb-1 text-lg font-semibold"}>Count In Stock</p>
+                                <p className={"mb-1 text-lg font-semibold"}
+                                    data-cy={"count-headline"}
+                                >Count In Stock</p>
                                 <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
-                                       placeholder={"Enter Count In Stock"} type={'countInStock'} value={countInStock}
+                                       placeholder={"Enter Count In Stock"}
+                                       type={'countInStock'}
+                                       value={countInStock}
                                        required={true}
+                                       data-cx={"input-count"}
                                        onChange={(e) => setCountInStock(e.target.value)}/>
                             </div>
 
                             <div className={'w-full '}>
-                                <p className={"mb-1 text-lg font-semibold"}>Category</p>
+                                <p className={"mb-1 text-lg font-semibold"}
+                                    data-cy={"category-headline"}
+                                >Category</p>
                                 <input className={'border border-zinc-700 rounded-lg w-full p-2 pt-1'}
-                                       placeholder={"Enter Category"} type={category} value={category}
+                                       placeholder={"Enter Category"}
+                                       type={category}
+                                       value={category}
                                        required={true}
+                                       data-cx={"input-category"}
                                        onChange={(e) => setCategory(e.target.value)}/>
                             </div>
 
@@ -155,6 +181,7 @@ export default function AddProductScreen() {
                             <div className={"flex flex-row mx-auto gap-6 "}>
                                 <button
                                     type="submit"
+                                    data-cy={"submit"}
                                     className="flex max-w-xs  flex-1 items-center justify-center rounded-lg border border-transparent bg-indigo-600 px-8 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                                 >
                                     Submit
@@ -163,6 +190,7 @@ export default function AddProductScreen() {
                                 <Link to={"/admin/producttable"}>
                                     <button
                                         type="cancel"
+                                        data-cy={"cancel"}
                                         className="flex max-w-xs   flex-1 items-center justify-center rounded-lg border border-transparent bg-red-300 px-8 py-2 text-base font-medium text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                                     > Cancel
                                     </button>
@@ -174,7 +202,7 @@ export default function AddProductScreen() {
 
 
                     </form>
-                )
+
 
         </>
     )

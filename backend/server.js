@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+
 // import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import {notFound, errorHandler} from "./middleware/errorHandler.js";
@@ -11,6 +12,7 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 import path from "path";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
+import {ajJet} from "./lib/arcjet.js";
 //import {sanitize} from "express-mongo-sanitize";
 //import {sanitizeFilter} from "mongoose";
 
@@ -69,6 +71,38 @@ app.get("/api/config/paypal", (req, res) =>
 // Set upload folder as static
 const __dirname = path.resolve(); // Set _dirname to current directory
 app.use(`/uploads`, express.static(path.join(__dirname, `/uploads`))); // changed the pathname because the root folder would not accept /uploads previous running from backend package json ../uploads
+
+// Apply arcjet for rate-limiting all the routes
+app.use(async (req, res, next) => {
+    try {
+        const decision = await ajJet.protect(req, {
+            request: 1 // specifies that each request consumes 2 tokens
+        });
+
+        if (decision.isDenied()) {
+            if (decision.reason.isRateLimit()) {
+                res.status(429).json({error: "Too Many Requests"});
+            } else if (decision.reason.isBot()) {
+                res.status(403).json({error: "Bot access denied"});
+            } else {
+                res.status(403).json({error: "Forbidden"});
+            }
+            return;
+        }
+
+        // check for spoofed bots
+        if (decision.results.some((result) => result.reason.isBot() && result.reason.isSpoofed())) {
+            res.status(403).json({error: "Spoofed bot detected"});
+            return;
+        }
+        next();
+
+    } catch (error) {
+        console.log("Arcjet error", error);
+        next(error);
+    }
+})
+
 
 // Prepare for Production
 if (process.env.NODE_ENV  !== "development") {
