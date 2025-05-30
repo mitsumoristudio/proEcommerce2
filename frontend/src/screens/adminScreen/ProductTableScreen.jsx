@@ -11,13 +11,14 @@ import {toast} from "react-toastify";
 import Meta from "../../components/Meta"
 import "../../App.css"
 import {useNavigate} from "react-router-dom";
-import Pagination from "../../components/Pagination"
+import PaginateProductPage from "../../components/PaginateProductPage";
+import {useEffect} from "react";
 
 
 export default function ProductTableScreen() {
     //  const [filterProducts, setFilterProducts] = useState(mockProducts);
 
-    const {keyword, pageNumber} = useParams();
+    const {keyword, pageNumber = 1 } = useParams();
     const [searchTerm, setSearchTerm] = useState("");
     const {data: products, isLoading, isError, refetch} = useGetProductsPaginationQuery({keyword, pageNumber});
     const [deleteProduct] = useDeleteProductMutation();
@@ -47,6 +48,13 @@ export default function ProductTableScreen() {
             }
         }
     }
+
+    useEffect(() => {
+        if (productsItem) {
+            const filtered = searchTerm ? productsItem.filter((product) => product.name.toLowerCase().includes(searchTerm.toLowerCase())) : productsItem;
+            setFilteredProducts(filtered);
+        }
+    }, [productsItem, searchTerm]);
 
     return (
         <>
@@ -168,9 +176,10 @@ export default function ProductTableScreen() {
                                 </motion.tr>
                             ))}
                             </tbody>
-                            <Pagination page={products.page} pages={products.pages} keyword={"keyword"} />
-
                         </table>
+                            <PaginateProductPage page={products.page} pages={products.pages} keyword={keyword ? keyword : ""} />
+                            {/*<Pagination page={products.page} pages={products.pages} keyword={"keyword"}
+                             must be outside the table to not create issues/>*/}
                     </div>
                 </motion.div>
             )}

@@ -72,6 +72,7 @@ export default function App() {
                   <Route path={"/admin/addProduct"} element={<AddProductScreen />} />
                   <Route path={"/admin/usertable"} element={<UserTableScreen />} />
                   <Route path={"/admin/producttable"} element={<ProductTableScreen />} />
+                  <Route path={"/admin/producttable/search/:keyword/page/:pageNumber"} element={<ProductTableScreen />} />
                   <Route path={"/admin/producttable/:pageNumber"} element={<ProductTableScreen />} />
                   <Route path={"/admin/products/:id/edit"} element={<ProductEditScreen />} />
                   <Route path={"/admin/ordertable"} element={<OrderTableScreen />} />
