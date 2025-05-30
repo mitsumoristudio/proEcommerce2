@@ -114,15 +114,15 @@ export default function ProductTableScreen() {
                             </thead>
 
                             <tbody className='divide-y divide-gray-700'>
-                            {filteredProducts?.map((product) => (
+                            {filteredProducts?.map((product, index) => (
                                 <motion.tr
-                                    key={product._id}
+                                    key={`${product._id}-${index}`}
                                     initial={{opacity: 0}}
                                     animate={{opacity: 1}}
                                     transition={{duration: 0.3}}
                                 >
 
-                                    <td className='px-6 py-4 whitespace-nowrap' key={product._id}>
+                                    <td className='px-6 py-4 whitespace-nowrap' key={`${product._id}-${index}`}>
                                         <div className='flex items-center'>
                                             <div className='flex-shrink-0 h-10 w-10'>
                                                 <div
@@ -168,8 +168,8 @@ export default function ProductTableScreen() {
                                 </motion.tr>
                             ))}
                             </tbody>
+                            <Pagination page={products.page} pages={products.pages} keyword={"keyword"} />
 
-                            <Pagination page={productsItem.page} pages={productsItem.pages} keyword={"keyword"} />
                         </table>
                     </div>
                 </motion.div>

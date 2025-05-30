@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 export default function Paginate({ pages, page, isAdmin = false, keyword = "" }) {
     return (
         pages > 1 && (
-            <div className="flex justify-center mt-6">
-                <nav className="inline-flex shadow-sm rounded-md" aria-label="Pagination">
+            <div className="flex justify-center mt-6 mx-auto">
+                <nav className="inline-flex shadow-sm justify-center rounded-lg" aria-label="Pagination">
                     {[...Array(pages).keys()].map((x) => {
                         const pageNum = x + 1;
                         const path = !isAdmin
                             ? keyword
                                 ? `/products/search/${keyword}/page/${pageNum}`
                                 : `/page/${pageNum}`
-                            : `/admin/productlist/${pageNum}`;
+                            : `/admin/producttable/${pageNum}`;
 
                         return (
                             <Link

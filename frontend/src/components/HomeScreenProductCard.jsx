@@ -62,19 +62,18 @@ export default function HomeScreenProductCard() {
                     <div
                         className="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-0 lg:gap-x-8"
                     key={products._id}>
-                        {products?.products.map((product) => (
-                            <div key={product._id}
+                        {products?.products.map((product, index) => (
+                            <div key={`${product._id}-${index}`}
                                  className="group relative cursor-pointer my-2 hover:translate-y-[-10px] transition-all duration-500">
                                 <div
                                     className="h-56 w-full overflow-hidden rounded-md cursor-pointer bg-gray-200 group-hover:opacity-75 lg:h-72 xl:h-80"
-                                    key={product.id}>
+                                    key={`${product._id}-${index}`}>
                                     <img alt={product.name} src={product.image}
-                                         key={product._id}
                                          className="size-full object-cover"/>
                                 </div>
                                 <h3 className="mt-4 text-sm text-gray-700">
                                     <a href={"/products"}>
-                                        <span className="absolute inset-0" key={product._id}/>
+                                        <span className="absolute inset-0"/>
                                         {product.name}
                                     </a>
                                 </h3>

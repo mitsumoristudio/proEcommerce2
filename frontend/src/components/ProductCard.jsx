@@ -9,8 +9,8 @@ export default function ProductCard({products}) {
 
     return (
         <div className="-mx-px grid grid-cols-2 border-spacing-1 border-gray-200 sm: mx-0 md: grid-cols-3 lg: grid-cols-4">
-            {products.map((product)=> (
-                <div key={product.id} className="group relative border-b border-r border-gray-200 p-4 sm:p-6">
+            {products.map((product, index)=> (
+                <div key={`${product._id} - ${index}`} className="group relative border-b border-r border-gray-200 p-4 sm:p-6">
                     <img
                         alt={product.name}
                         src={product.image}
@@ -19,12 +19,12 @@ export default function ProductCard({products}) {
 
                     <div className={"pt-10 text-center"}>
                         <h3 className={"text-sm font-medium text-gray-800"}>
-                            <a href={`/products/${product._id}`} key={product._id}>
+                            <a href={`/products/${product._id}`}>
                                 <span aria-hidden={"true"} className="absolute inset-0"/>
                                 {product.name}
                             </a>
                         </h3>
-                        <h2 className={"font-medium text-gray-600"} key={product._id}>
+                        <h2 className={"font-medium text-gray-600"}>
                             {product.brand}
                         </h2>
                         <div className={"flex justify-center mb-2 "}>

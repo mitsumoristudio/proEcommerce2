@@ -4,7 +4,7 @@
 // import React, {useState, useEffect} from 'react';
 
 
-import {useGetAllProductsQuery, useGetProductsPaginationQuery} from "../features/slices/productApiSlice";
+import { useGetProductsPaginationQuery} from "../features/slices/productApiSlice";
 import CustomLoader from "../components/CustomLoader";
 import ProductCard from "../components/ProductCard";
 import Footer from "../components/Footer";
