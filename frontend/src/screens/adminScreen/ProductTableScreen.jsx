@@ -11,8 +11,7 @@ import {toast} from "react-toastify";
 import Meta from "../../components/Meta"
 import "../../App.css"
 import {useNavigate} from "react-router-dom";
- import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
- import Pagination from "@mui/material/Pagination"
+import Pagination from "../../components/Pagination"
 
 
 export default function ProductTableScreen() {
@@ -22,21 +21,15 @@ export default function ProductTableScreen() {
     const [searchTerm, setSearchTerm] = useState("");
     const {data: products, isLoading, isError, refetch} = useGetProductsPaginationQuery({keyword, pageNumber});
     const [deleteProduct] = useDeleteProductMutation();
-    const [filteredProducts, setFilteredProducts] = useState(products);
-    const [page, setPage] = useState(1);
+    const productsItem = products?.products;
+    const [filteredProducts, setFilteredProducts] = useState(productsItem);
     const navigate = useNavigate();
-
-    const selectedPageHandler = (selectedPage) => {
-        if (selectedPage >= 1 && selectedPage <= products.length / 8 && selectedPage !== page) {
-            setPage(selectedPage);
-        }
-    }
 
     const handleSearch = (e) => {
         const term = e.target.value.toLowerCase();
         setSearchTerm(term);
 
-        const filtered = products.filter((product) => product.name.toLowerCase().includes(term));
+        const filtered = products.products.filter((product) => product.name.toLowerCase().includes(term));
                // const filtered = mockProducts.filter((product) => product.name.toLowerCase().includes(term));
 
         setFilteredProducts(filtered);
@@ -175,29 +168,9 @@ export default function ProductTableScreen() {
                                 </motion.tr>
                             ))}
                             </tbody>
-                            <span onClick={() => selectedPageHandler(page - 1)}
-                                  className={page > 1 ? "" : "pagination__disable"}>
-                                <FaArrowAltCircleLeft size={24} />
-                            </span>
-                            { [...Array(products.pages).keys()].map((_, index) => {
-                                return (
-                                    <span key={index}
-                                          className={page === index + 1 ? "pagination__selected" : ""}
-                                    onClick={() => selectedPageHandler(index + 1)}>
-                                        {index + 1}
-                                    </span>
-                                )
-                            })}
 
-                            <span className={page < products.length / 8 ? "" : "pagination__disable"}
-                            onClick={() => selectedPageHandler(page- 1)}>
-                                <FaArrowAltCircleRight size={24} />
-                            </span>
-
-
+                            <Pagination page={productsItem.page} pages={productsItem.pages} keyword={"keyword"} />
                         </table>
-                        {/*<Pagination count={products.pages} page={products.page} variant={"outlined"} color={"secondary"} shape={"rounded"}/>*/}
-
                     </div>
                 </motion.div>
             )}

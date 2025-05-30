@@ -1,7 +1,8 @@
 import React from "react";
-import {useGetAllProductsQuery} from "../features/slices/productApiSlice";
+import {useGetProductsPaginationQuery} from "../features/slices/productApiSlice";
 import CustomLoader from "./CustomLoader";
 import {useParams} from "react-router-dom";
+// import {useGetAllProductsQuery} from "../features/slices/productApiSlice";
 
 // import {assets} from "../assets/assets";
 
@@ -45,9 +46,10 @@ export default function HomeScreenProductCard() {
     //         imageAlt: 'Grey leather armchair',
     //     },
     // ]
-    const {keyword} = useParams()
+    const {keyword, pageNumber} = useParams()
 
-    const {data: products, isLoading, isError } = useGetAllProductsQuery({keyword});
+//    const {data: products, isLoading, isError } = useGetAllProductsQuery({keyword});
+    const {data: products, isLoading, isError} = useGetProductsPaginationQuery({keyword, pageNumber});
 
     return (
         <>
@@ -60,7 +62,7 @@ export default function HomeScreenProductCard() {
                     <div
                         className="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-0 lg:gap-x-8"
                     key={products._id}>
-                        {products?.map((product) => (
+                        {products?.products.map((product) => (
                             <div key={product._id}
                                  className="group relative cursor-pointer my-2 hover:translate-y-[-10px] transition-all duration-500">
                                 <div

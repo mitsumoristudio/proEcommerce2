@@ -41,7 +41,6 @@ export default function App() {
           <Routes>
               <Route path={"/"} index={true} element={<HomeScreen />} />
               <Route path={"/search/:keyword"} element={<HomeScreen />} />
-              <Route path={"/search/keyword/page/:pageNumber"} element={<HomeScreen />} />
 
               <Route path={"/register"} element={<RegisterScreen />} />
               <Route path={"/login"} element={<LoginScreen />} />
@@ -53,7 +52,8 @@ export default function App() {
               <Route path={"/aboutUs"} element={<AboutUsScreen />} />
               <Route path={"/contactUs"} element={<ContactScreen />} />
 
-              <Route path={"/products"} index={true} element={<ShoppingScreen/>} />
+              <Route path={"/products"} element={<ShoppingScreen/>} />
+              <Route path={"/products/search/keyword/page/:pageNumber"}  element={<ShoppingScreen />} />
               <Route path={"/products/:id"} element={<ProductScreen />} />
               <Route path={"/products/:id/reviews"} element={<AddReviewScreen />} />
 

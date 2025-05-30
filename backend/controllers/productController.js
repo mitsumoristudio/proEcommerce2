@@ -10,25 +10,33 @@ export const getAllProducts = asyncHandler(async (req, res) => {
 
     const products = await ProductModels.find({...keyword});
     res.json(products);
+
 });
 
 // @desc Fetch all products with Pagination
 // @route GET /api/products
 // @access Public
 export const getProductsPagination = asyncHandler(async (req, res) => {
-    const pageSize = 8;
     const page = Number(req.query.pageNumber) || 1;
+    const pageSize = Number(process.env.PAGINATION_PAGE_SIZE) || 6;
 
+    const keyword = req.query.keyword
+        ? { name: { $regex: req.query.keyword, $options: 'i' } }
+        : {};
 
-    const keyword = req.query.keyword ? { name : {$regex: req.query.keyword, $options: "i" } } : { };
-    const countpage = await ProductModels.countDocuments({...keyword});
+    const count = await ProductModels.countDocuments({ ...keyword });
 
-       const products = await ProductModels.find({...keyword})
+    const products = await ProductModels.find({ ...keyword })
         .limit(pageSize)
         .skip(pageSize * (page - 1));
-    res.json({products, page, pages: Math.ceil(countpage/pageSize)})
-    // res.json(products);
-})
+
+    res.json({
+        products,
+        page,
+        pages: Math.ceil(count / pageSize),
+        totalProducts: count,
+    });
+});
 
 
 // @desc Get a SingleProduct by ID

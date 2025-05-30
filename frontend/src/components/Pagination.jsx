@@ -10,7 +10,7 @@ export default function Paginate({ pages, page, isAdmin = false, keyword = "" })
                         const pageNum = x + 1;
                         const path = !isAdmin
                             ? keyword
-                                ? `/search/${keyword}/page/${pageNum}`
+                                ? `/products/search/${keyword}/page/${pageNum}`
                                 : `/page/${pageNum}`
                             : `/admin/productlist/${pageNum}`;
 

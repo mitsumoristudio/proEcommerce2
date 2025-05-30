@@ -12,9 +12,10 @@ import {admin, protectRoute} from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-//router.route("/").get(getProductsPagination);
+ router.route("/").get(getProductsPagination);
 
-router.route("/").get(getAllProducts);
+//router.route("/").get(getAllProducts);
+router.route("/").get(getProductsPagination);
 router.route("/:id").get(getProductById);
 router.route("/").post(protectRoute, admin, createProduct);
 router.route("/:id").put(protectRoute,admin, updatedProduct);

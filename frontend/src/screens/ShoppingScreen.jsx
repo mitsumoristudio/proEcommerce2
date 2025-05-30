@@ -2,25 +2,24 @@
 // Adopted prior to adding Pagination
 // import mockProducts from "../assets/mockdata/mockProducts";
 // import React, {useState, useEffect} from 'react';
-// import {useGetProductsPaginationQuery} from "../features/slices/productApiSlice";
-// import Pagination from "../components/Pagination";
-//import {useParams} from "react-router-dom";
 
-import {useGetAllProductsQuery} from "../features/slices/productApiSlice";
+
+import {useGetAllProductsQuery, useGetProductsPaginationQuery} from "../features/slices/productApiSlice";
 import CustomLoader from "../components/CustomLoader";
 import ProductCard from "../components/ProductCard";
 import Footer from "../components/Footer";
 import Meta from "../components/Meta";
 import React from "react";
 import {useParams} from "react-router-dom";
+import Pagination from "../components/Pagination";
 
 export default function ShoppingScreen() {
- //   const { pageNumber, keyword } = useParams();
- //   const {data, isError, isLoading} = useGetProductsPaginationQuery({keyword, pageNumber});
+    const { pageNumber, keyword } = useParams();
+    const {data: products, isError, isLoading} = useGetProductsPaginationQuery({keyword, pageNumber});
     // Fetch product without Pagination
-    const {keyword} = useParams();
+  //  const {keyword} = useParams();
 
-    const {data: products, isLoading, isError} = useGetAllProductsQuery({keyword});
+   // const {data: products, isLoading, isError} = useGetAllProductsQuery({keyword});
 
     return (
         <>
@@ -40,8 +39,10 @@ export default function ShoppingScreen() {
                             </div>
                         ) : (
                             <>
-                                        <ProductCard products={products}
+                                        <ProductCard products={products.products}
                                                      key={products._id}/>
+
+                                        <Pagination page={products.page} pages={products.pages} keyword={"keyword"} />
                             </>
                         )}
 
