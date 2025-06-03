@@ -128,7 +128,6 @@ export default function RegisterScreen() {
                                     <Link to={"/login"}> Click here </Link>
                                 </button>
 
-
                         </span></p>
                     </div>
 

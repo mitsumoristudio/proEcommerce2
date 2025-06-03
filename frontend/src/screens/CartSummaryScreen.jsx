@@ -113,7 +113,7 @@ export default function CartSummaryScreen() {
 
                             <ul key={"cartId"} className="divide-y divide-gray-200 border-b border-t border-gray-200">
                                 {cartItems.map((product, productIdx) => (
-                                    <li key={product._id} className="flex py-6 sm:py-10">
+                                    <li key={`${product}- ${productIdx}`} className="flex py-6 sm:py-10">
                                         <div className="shrink-0">
                                             <img
                                                 alt={product.name}

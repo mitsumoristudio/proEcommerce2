@@ -3,6 +3,7 @@ import {asyncHandler} from "../middleware/asyncHandler.js";
 import OrdersModels from "../models/OrdersModels.js";
 import ProductModels from "../models/ProductModels.js";
 import {calcPrices} from "../utils/calcPrices.js";
+import UserModels from "../models/UserModels.js";
 
 // @desc    Create new order
 // @route   POST /api/orders
@@ -85,14 +86,21 @@ export const protectAddOrderItems = asyncHandler(async (req, res) => {
     }
 })
 
+
 // @desc    Get logged in user orders
 // @route   GET /api/orders/myorders
 // @access  Private
 export const getMyOrders = asyncHandler(async (req, res) => {
-    const orders = await OrdersModels.find({user: req.user._id});
-    res.status(200).json(orders);
+    try {
+        console.log("REQ.USER", req.user);
 
-    // res.send("Get Logged in User Orders");
+        const orders = await OrdersModels.find({user: req.user._id});
+        res.status(200).json(orders);
+
+    } catch (error) {
+        res.status(500).json({message: 'Failed to fetch orders', error: error.message});
+    }
+
 });
 
 // @desc    Get order by ID

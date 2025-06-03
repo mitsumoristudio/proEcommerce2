@@ -10,21 +10,19 @@ import {addOrderItems,
         protectAddOrderItems,
         deleteOrder} from "../controllers/orderController.js";
 
-
-
 export const orderRoutes = express.Router();
 
 //orderRoutes.route("/").get(protectRoute, getOrders);
-orderRoutes.route("/").get(getOrders);
+orderRoutes.route("/").get(protectRoute, admin, getOrders);
 orderRoutes.route("/").post(protectRoute, addOrderItems)
 orderRoutes.route("/").post(protectRoute, protectAddOrderItems);
 
 
 // orderRoutes.route("/myOrders").get(protectRoute, getMyOrders);
-orderRoutes.route("/myOrders").get(getMyOrders);
+orderRoutes.route("/myOrders").get(protectRoute, getMyOrders);
 orderRoutes.route("/:id").delete(protectRoute, admin, deleteOrder);
 orderRoutes.route("/:id").get(protectRoute, getOrderById);
 orderRoutes.route("/:id/pay").put(protectRoute, updateOrderToPaid);
-orderRoutes.route("/:id/deliver").put(protectRoute, updateOrderToDelivered);
+orderRoutes.route("/:id/deliver").put(protectRoute, admin, updateOrderToDelivered);
 
 export default orderRoutes;
