@@ -18,7 +18,6 @@ orderRoutes.route("/").post(protectRoute, addOrderItems)
 orderRoutes.route("/").post(protectRoute, protectAddOrderItems);
 
 
-// orderRoutes.route("/myOrders").get(protectRoute, getMyOrders);
 orderRoutes.route("/myOrders").get(protectRoute, getMyOrders);
 orderRoutes.route("/:id").delete(protectRoute, admin, deleteOrder);
 orderRoutes.route("/:id").get(protectRoute, getOrderById);

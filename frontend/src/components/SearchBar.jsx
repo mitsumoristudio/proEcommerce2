@@ -12,7 +12,7 @@ export default function SearchBar() {
         e.preventDefault();
         if (keyword.trim()) {
             setKeyword("");
-            navigate(`/search/${keyword}`);
+            navigate(`/products/search/${keyword}`);
         } else {
             navigate("/");
         }

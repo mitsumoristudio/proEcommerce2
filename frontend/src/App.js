@@ -40,7 +40,7 @@ export default function App() {
 
           <Routes>
               <Route path={"/"} index={true} element={<HomeScreen />} />
-              <Route path={"/search/:keyword"} element={<HomeScreen />} />
+              <Route path={"products/search/:keyword"} element={<ShoppingScreen />} />
 
               <Route path={"/register"} element={<RegisterScreen />} />
               <Route path={"/login"} element={<LoginScreen />} />
