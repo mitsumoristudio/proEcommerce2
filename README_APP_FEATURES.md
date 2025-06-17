@@ -1,4 +1,4 @@
-<a ><img src="https://github.com/mitsumoristudio/proEcommerce2/blob/main/orderprocessed.png" width= "1256" height = "900" /></a>
+<a ><img src="https://github.com/mitsumoristudio/proEcommerce2/blob/main/orderprocessed.png" width= "1080" height = "800" /></a>
 
 
 
