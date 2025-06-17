@@ -27,6 +27,15 @@
 
 More details can be found [here](https://github.com/mitsumoristudio/sekatsukan-Ecommerce-App/blob/main/README_APP_FEATURES.md)
 
+## Tech Stack
+
+Front-End Development
+* Languages: [JavaScript (ES6+), HTML5, CSS3]
+* Frameworks/Libraries: [React.js]
+* Styling: [Tailwind CSS]
+* State Management: [Redux Tool Kit]
+* Build Tools: [Webpack]
+
 - ## Usage
 
 - Create a MongoDB database and obtain your `MongoDB URI` - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
