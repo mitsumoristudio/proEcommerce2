@@ -2,7 +2,7 @@
 
 
 
-## Core Features of E-Commerce Application
+## 🛠️ Core Features of E-Commerce Application
 1) Add to Cart
    * User can add products and specify quantity
    * The cart temporarily stores in cache when the user is autheticated and clears when user logs out
