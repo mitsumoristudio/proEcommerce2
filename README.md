@@ -44,11 +44,11 @@ Back-End Development
 
 Database
 * NOSQL: [MongoDB/Mongoose]
-Version Control: [Github]
-Deployment: [Render]
-Testing: Cypress for End-to-End Testing
-Postman: Tesing API routes and logistics
-More Testing: ArcJet for prevention of SQL injection, Rate Limiting, Bot Detection, XSS, CSRF attacks.
+* Version Control: [Github]
+* Deployment: [Render]
+* Testing: Cypress for End-to-End Testing
+* Postman: Tesing API routes and logistics
+* More Testing: ArcJet for prevention of SQL injection, Rate Limiting, Bot Detection, XSS, CSRF attacks.
 
 
 - ## Usage
