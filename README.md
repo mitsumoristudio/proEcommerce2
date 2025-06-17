@@ -7,3 +7,5 @@
 
 # Link
 > https://www.sekatsukan.org
+>
+> This project was built from inspiration from Muji USA (Apparel and Furniture Company)
