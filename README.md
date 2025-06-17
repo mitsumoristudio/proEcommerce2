@@ -27,7 +27,7 @@
 
 More details can be found [here](https://github.com/mitsumoristudio/sekatsukan-Ecommerce-App/blob/main/README_APP_FEATURES.md)
 
-## Tech Stack
+## Tech stack for this project
 
 Front-End Development
 * Languages: [JavaScript (ES6+), HTML5, CSS3]
@@ -35,6 +35,21 @@ Front-End Development
 * Styling: [Tailwind CSS]
 * State Management: [Redux Tool Kit]
 * Build Tools: [Webpack]
+
+Back-End Development
+* Languages: [Node.js]
+* Frameworks: [Express.js]
+* APIs: [RESTful APIs]
+* Authentication: [JWT (JSON WEB TOKEN]
+
+Database
+* NOSQL: [MongoDB/Mongoose]
+Version Control: [Github]
+Deployment: [Render]
+Testing: Cypress for End-to-End Testing
+Postman: Tesing API routes and logistics
+More Testing: ArcJet for prevention of SQL injection, Rate Limiting, Bot Detection, XSS, CSRF attacks.
+
 
 - ## Usage
 
