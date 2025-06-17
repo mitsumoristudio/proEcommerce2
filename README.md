@@ -25,6 +25,8 @@
 - Paypal/ Credit Card Integration
 - Security features, and end-to-end testing
 
+More details can be found [here](https://github.com/mitsumoristudio/sekatsukan-Ecommerce-App/blob/main/README_APP_FEATURES.md)
+
 - ## Usage
 
 - Create a MongoDB database and obtain your `MongoDB URI` - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
